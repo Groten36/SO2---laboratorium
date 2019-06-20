@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+	echo "Brak argumentu"
+else
+	if [[ -d $1 ]]
+	then
+		cd $1
+		i=1
+		for file in ls -S
+		do
+			if [[ -x $file ]]
+			then
+				mv "$file" "$file$i"
+				((i++))
+			fi
+		done
+	fi
+fi

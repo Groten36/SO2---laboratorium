@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+	echo "Brak argumentow"
+else
+	if [[ -e $1]]
+	then
+		lista=$1
+		
+		mergedFile=merged
+		if [ ! -e $mergedFile ]
+		then
+			touch mergedFile
+		fi
+
+		while read -r file
+		do
+			echo "$file"
+			while read -r line
+			do
+				echo" $line" >> $mergedFile
+			done 
+		done
+	fi
+fi

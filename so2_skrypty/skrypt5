@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+	echo "Brak katalogu"
+else
+	if [[ -d $1 ]]
+	then
+		cd $1
+		mergedFile=polaczone.$2
+		for file in *.$2
+		do
+			if [[ -x $mergedFile ]]
+			then
+				touch mergedFile
+			fi
+			
+			echo "$file" >> $mergedFile
+			
+			while read -r line
+			do
+				echo "$line">>$mergedFile
+			done
+		done
+	fi
+fi
