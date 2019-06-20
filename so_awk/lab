@@ -1,0 +1,44 @@
+
+#A
+ps aux | awk '{print "User: ",$1, "proces: ", $11}'
+#B
+
+ps aux | awk '{
+
+
+	b=split($11,a,"/");
+	print "User: ",$1, "proces: ", a[b]}'
+
+#C
+
+ps aux | awk '
+{
+	cpu +=$3
+	mem+=$4
+
+}
+END\
+{
+	print "Suma CPU: ", cpu," Suma MEM: ",mem
+}
+'
+#D
+
+ps aux | awk '
+{
+maxcpu=0
+maxmem=0
+}
+{
+
+	user=$1;
+	if(user==$1)
+		cpu+=$3
+		mem+=$4
+
+}
+END\
+{
+	print user, cpu, mem
+}
+'
